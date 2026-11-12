@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+.venv-*/
+venv/
+
+# Build outputs
+build/
+dist/
+*.spec.bak
+
+# User data and secrets
+*.db
+*.db-shm
+*.db-wal
+ai_config.json
+*.log
+audio_cache/
+pronunciation_cache/
+*.mp3
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+
