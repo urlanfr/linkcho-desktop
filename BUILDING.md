@@ -14,7 +14,7 @@
 .\build_windows.ps1
 ```
 
-脚本会创建或复用 `.venv`，安装运行与构建依赖，执行阶段 3/4 冒烟测试，最后使用 `Linkcho.spec` 构建单文件窗口应用。
+脚本会创建或复用 `.venv`，安装运行与构建依赖，执行阶段 3/4 冒烟测试，使用 `Linkcho.spec` 构建单文件窗口应用，并在干净 Windows `PATH` 下执行真实 EXE 启动检查。
 
 产物：
 
@@ -35,4 +35,3 @@ dist\Linkcho Desktop.exe
 - Edge-TTS 与大模型请求都需要网络。
 - Windows SmartScreen 可能提示未知发布者；正式分发建议使用代码签名证书签署 EXE。
 - 单文件程序首次启动需要释放依赖，启动速度会比源码模式稍慢。
-

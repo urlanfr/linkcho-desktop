@@ -27,6 +27,17 @@ a = Analysis(
     noarchive=False,
     optimize=1,
 )
+
+# Qt 6 on modern Windows links against the OS-provided generic ICU forwarder
+# (icuuc.dll). The Codex build host also has Poppler's private ICU 78 directory
+# on PATH; PyInstaller may accidentally collect that incompatible DLL pair and
+# make QtCore fail before the application starts. Never ship those host DLLs.
+incompatible_host_icu = {"icuuc.dll", "icudt78.dll"}
+a.binaries = [
+    item
+    for item in a.binaries
+    if str(item[0]).lower() not in incompatible_host_icu
+]
 pyz = PYZ(a.pure)
 
 exe = EXE(
@@ -47,4 +58,3 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
 )
-
