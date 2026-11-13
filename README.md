@@ -17,9 +17,11 @@ Linkcho Desktop 是一款面向 Windows 的本地英语学习工具。它把零�
 
 ## 获取与运行
 
-### 使用 Windows 可执行文件
+### 使用 Windows 安装程序（推荐）
 
-从 GitHub Releases 下载 `Linkcho-Desktop-windows-x64.zip`，解压后双击 `Linkcho Desktop.exe`。首次使用请在右上角“API 与模型设置”中填写兼容接口信息。
+从 GitHub Releases 下载 `Linkcho-Desktop-Setup-v1.0.2-windows-x64.exe`，双击进入安装向导。安装程序默认使用当前用户目录，不要求管理员权限，并创建开始菜单快捷方式。
+
+如需免安装版本，可下载 `Linkcho-Desktop-v1.0.2-windows-x64.zip`，解压后运行 `Linkcho Desktop.exe`。首次使用请在右上角“API 与模型设置”中填写兼容接口信息。
 
 ### 从源码运行
 
@@ -87,6 +89,12 @@ docs/                   用户与架构文档
 
 构建产物位于 `dist\Linkcho Desktop.exe`。详细说明见 [BUILDING.md](BUILDING.md)。
 
+构建 Windows 安装程序：
+
+```powershell
+.\build_installer.ps1 -SkipAppBuild
+```
+
 ## 文档
 
 - [用户手册](docs/USER_GUIDE.md)
@@ -99,4 +107,3 @@ docs/                   用户与架构文档
 ## 许可
 
 Copyright © 2026 urlanfr. All rights reserved. 详见 [LICENSE](LICENSE)。
-

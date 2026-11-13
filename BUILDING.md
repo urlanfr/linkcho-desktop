@@ -22,13 +22,30 @@
 dist\Linkcho Desktop.exe
 ```
 
+## 构建安装程序
+
+安装 Inno Setup 6 后运行：
+
+```powershell
+.\build_installer.ps1 -SkipAppBuild
+```
+
+产物：
+
+```text
+dist\Linkcho-Desktop-Setup-v1.0.2-windows-x64.exe
+```
+
+安装器默认进行当前用户安装，不需要管理员权限；它会创建开始菜单入口，并支持可选桌面快捷方式和标准卸载。构建脚本完成后会自动执行隔离目录中的静默安装、应用启动和卸载验证；若当前用户已经安装 Linkcho，则为保护现有安装而中止这项测试。
+
 ## 发布前检查
 
 1. 在一台没有 Python 的 Windows 机器上启动 EXE。
 2. 验证词库导入、API 设置、播客生成、TTS 与音频下载。
 3. 确认仓库中不包含 `ai_config.json`、数据库、日志或 MP3。
-4. 将 EXE 压缩为 `Linkcho-Desktop-windows-x64.zip`。
-5. 创建带版本号的 GitHub Release 并上传压缩包。
+4. 构建安装器并完成静默安装、启动、卸载测试。
+5. 将便携版 EXE 压缩为版本化 ZIP。
+6. 创建带版本号的 GitHub Release，上传安装器和便携版压缩包。
 
 ## 常见问题
 
